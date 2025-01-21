@@ -1,0 +1,64 @@
+id: 'clipart2sketch'
+
+# Active Learning strategy
+al_strat: 'coreset'
+# Domain Adaptation strategy
+da_strat: 'mme'
+# Model initialization
+model_init: 'source'
+
+# Number of runs
+runs: 1
+source: 'clipart'
+target: 'painting'
+
+# Total budget
+total_budget: 3600
+total_budget_second: 1400
+# Number of rounds
+num_rounds: 5
+num_rounds_2: 2
+
+cnn: 'ResNet34'
+optimizer: 'Adam'
+use_cuda: True
+batch_size: 64
+
+# Source training hyperparameters
+lr: 0.00001
+wd: 0.00001
+num_epochs: 50
+
+# UDA hyperparameters
+uda_lr: 0.0000003
+uda_num_epochs: 50
+
+# DA hyperparameters
+adapt_lr: 0.00001
+adapt_num_epochs: 20
+
+# Active Learning for second step
+training_epochs1: 20
+training_epochs2: 20
+hidden_size1: 256
+hidden_size2: 128
+dropout_ratio: 0.1
+mlp_lr1: 2e-4
+mlp_lr2: 2e-4
+weight_decay: 0
+temperature: True
+domain_class: 'discriminator'
+domain_epochs: 1
+domain_hidden: 256
+weight: False
+# Domain adaptation loss weights
+src_sup_wt: 0.1
+unsup_wt: 0.1
+cent_wt: 0.01
+# CLUE hyperparameters
+clue_softmax_t: 0.1
+
+s_k: 5
+s_m: 10
+s_prop_iter: 1
+s_prop_coef: 1.0

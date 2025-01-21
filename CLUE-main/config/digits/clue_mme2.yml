@@ -1,0 +1,64 @@
+id: 'svhn2mnist'
+
+# Active Learning strategy
+al_strat: 'LAS'
+# Domain Adaptation strategy
+da_strat: 'ft'
+# Model initialization
+model_init: 'source'
+
+# Number of runs
+runs: 1
+source: 'svhn'
+target: 'mnist'
+
+# Total budget
+total_budget: 300
+total_budget_second: 0
+# Number of rounds
+num_rounds: 3
+num_rounds_2: 0
+
+cnn: 'LeNet'
+optimizer: 'Adam'
+use_cuda: True
+batch_size: 128
+
+# Source training hyperparameters
+lr: 0.0002
+wd: 0.00001
+num_epochs: 50
+
+# Domain adaptation hyperparameters
+uda_lr: 0.0002
+uda_num_epochs: 60
+adapt_lr: 0.0002
+adapt_num_epochs: 60
+da_num_epochs: 60
+# Domain adaptation loss weights
+src_sup_wt: 0.1
+unsup_wt: 1.0
+cent_wt: 0.1
+# Active Learning for second step
+training_epochs1: 20
+training_epochs2: 20
+hidden_size1: 256
+hidden_size2: 128
+dropout_ratio: 0.1
+mlp_lr1: 2e-4
+mlp_lr2: 2e-4
+weight_decay: 0
+temperature: True
+domain_class: 'discriminator'
+domain_epochs: 1
+domain_hidden: 10
+weight: True
+# CLUE hyperparameters
+clue_softmax_t: 1.0
+
+
+
+s_k: 5
+s_m: 10
+s_prop_iter: 1
+s_prop_coef: 1.0
