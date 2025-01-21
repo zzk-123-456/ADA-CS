@@ -19,7 +19,7 @@ If you wanted to use the ADA-CS method on the DomainNet dataset, you could run t
 
 More running commands can be found in ```run.sh```
 
-To run the method on the Office-Home RSUT datasets use the code from ```Digits_DomainNet```.If you wanted to use the ADA-CS method on the Office-Home RSUT dataset, you could run the following code:
+To run the method on the Office-Home RSUT datasets use the code from ```Office-Home```.If you wanted to use the ADA-CS method on the Office-Home RSUT dataset, you could run the following code:
 
 ```
 python main.py --cfg configs/officehome_RSUT.yaml --gpu 0 --log log/oh_RSUT/LADA \
