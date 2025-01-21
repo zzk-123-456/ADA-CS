@@ -2,7 +2,7 @@
 
 ### Digits and DomainNet
 
-To run the method on the Digits and DomainNet datasets use the code from Digits_DomainNet.If you wanted to use the ADA-CS method on the Digits dataset, you could run the following code:
+To run the method on the Digits and DomainNet datasets use the code from ```Digits_DomainNet```.If you wanted to use the ADA-CS method on the Digits dataset, you could run the following code:
 
 ```
 python train.py --load_from_cfg True  --cfg_file config/digits/clue_mme.yml  --al_strat 'CLUE' --da_strat 'mme' \
@@ -18,3 +18,13 @@ If you wanted to use the ADA-CS method on the DomainNet dataset, you could run t
 ```
 
 More running commands can be found in ```run.sh```
+
+To run the method on the Office-Home RSUT datasets use the code from ```Digits_DomainNet```.If you wanted to use the ADA-CS method on the Office-Home RSUT dataset, you could run the following code:
+
+```
+python main.py --cfg configs/officehome_RSUT.yaml --gpu 0 --log log/oh_RSUT/LADA \
+ADA.AL 'AADA' ADA.DA dann LADA.S_M 5 ADA.BUDGET 0.1 \
+SECOND.IF True SECOND.BUDGET_2 0.05
+```
+
+More running commands can be found in ```run_baseline.sh```
