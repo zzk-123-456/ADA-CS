@@ -1,0 +1,47 @@
+DATASET:
+  ROOT: 'data/'
+  NAME: 'officehome'
+  SOURCE_DOMAINS: ['Art', 'Clipart', 'Product', 'RealWorld']
+  TARGET_DOMAINS: ['Art', 'Clipart', 'Product', 'RealWorld']
+#  SOURCE_DOMAINS: ['Clipart', 'Art', 'Product']
+#  TARGET_DOMAINS: ['Art', 'RealWorld', 'Product']
+#  SOURCE_DOMAINS: ['Clipart']
+#  TARGET_DOMAINS: ['RealWorld', 'Product']
+  NUM_CLASS: 65
+
+DATALOADER:
+  BATCH_SIZE: 32
+
+OPTIM:
+  NAME: 'Adadelta'
+  SOURCE_LR: 0.1
+  BASE_LR_MULT: 0.1
+
+TRAINER:
+  MAX_EPOCHS: 10
+  TRAIN_ON_SOURCE : True
+  MAX_UDA_EPOCHS: 0
+
+ADA:
+  TASKS: [['RealWorld','Clipart']]
+  DA : 'ft'
+  AL : 'random'
+  ROUND: 3
+  BUDGET: 0.1
+  ROUNDS : [0]
+
+SEED: [0]  # 0,1,2,3,4 for five random experiments
+
+SECOND:
+#  EPOCHS_RE: 3
+#  HIDDENS_RE: 32
+#  MLP_LR_RE: 1e-4
+  DIS_HIDDENS: 256
+  DIS_EPOCHS: 1
+  BUDGET_2: 0.2
+  ROUNDS_2: [0]
+  REGION: 'ridge'
+  DIV: 'js'
+  WEIGHT: False
+  ALPHA: 1e-4
+

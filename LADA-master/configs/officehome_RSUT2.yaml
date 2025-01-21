@@ -1,0 +1,43 @@
+DATASET:
+  ROOT: 'data/'
+  NAME: 'officehome_RSUT'
+  SOURCE_DOMAINS: ['Clipart_RS', 'Product_RS', 'RealWorld_RS']
+  TARGET_DOMAINS: ['Clipart_UT', 'Product_UT', 'RealWorld_UT']
+  NUM_CLASS: 65
+
+DATALOADER:
+  BATCH_SIZE: 32
+
+OPTIM:
+  NAME: 'Adadelta'
+  SOURCE_LR: 0.1
+  BASE_LR_MULT: 0.1
+
+TRAINER:
+  MAX_EPOCHS: 10
+  TRAIN_ON_SOURCE : True
+  MAX_UDA_EPOCHS: 0
+
+ADA:
+  # TASKS: [['Clipart_RS','Product_UT'], ['Clipart_RS','RealWorld_UT'], ['Product_RS','Clipart_UT'], ['Product_RS','RealWorld_UT'], ['RealWorld_RS','Clipart_UT'], ['RealWorld_RS','Product_UT']]
+  TASKS: [['RealWorld_RS','Clipart_UT'], ['RealWorld_RS','Product_UT']]
+  DA : 'ft'
+  AL : 'random'
+  ROUNDS : [0]
+
+SEED: [0]  # 0,1,2,3,4 for five random experiments
+
+SECOND:
+  IF: True
+  TEM: True
+  DIS_HIDDENS: 128
+  DIS_EPOCHS: 1
+  EPOCHS_1: 15
+  EPOCHS_2: 15
+  BUDGET_2: 0.05
+  ROUNDS_2: [0]
+  REGION: 'ridge'
+  DIV: 'kl'
+  WEIGHT: True
+  ALPHA: 1e-4
+
